@@ -2,8 +2,6 @@ import React from 'react';
 import { IoMdArrowRoundForward } from 'react-icons/io';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Img1 from '../images/h12.jpg';
-import Img2 from '../images/h13.jpg';
 const Section=styled.section`
     width: 100%;
     padding: 4rem 5rem ;
@@ -25,12 +23,12 @@ const HomesSection=styled.div`
 `;
 const HouseWrapper=styled.div`
     padding: 4rem 0rem 1rem 0rem;
-    &:nth-child(2){
+    &:nth-child(even){
         position: relative;
         top: 20%;
     }
     @media screen and (max-width:768px){
-        &:nth-child(2){
+        &:nth-child(even){
         position: relative;
         top: 0%;
     }
@@ -42,7 +40,6 @@ const HouseImg=styled.img`
     @media screen and (max-width:768px){
         width: 100%;
     }
-
 `;
 const HouseTitle=styled.h2`
     font-weight: 500;
@@ -65,27 +62,23 @@ const Button1=styled(Link)`
         transform: translateY(-2px);
     }
 `;
-const HousesSection = () => {
+const HousesSection = ({data}) => {
     return (
         <Section>
              <SectionTitle>View Our Newest Homes</SectionTitle>
              <HomesSection>
-                <HouseWrapper>
-                    <HouseImg src={Img1} alt='Home'/>
-                    <HouseTitle>8 Bed 10 Bath House in LA, California</HouseTitle>
-                    <Button1 to='/homes'>
-                        View Details
-                        <Arrow/>
-                    </Button1>
-                </HouseWrapper>
-                <HouseWrapper>
-                    <HouseImg src={Img2} alt='Home'/>
-                    <HouseTitle>8 Bed 7 Bath Farm House in LA, California</HouseTitle>
-                    <Button1 to='/homes'>
-                        View Details
-                        <Arrow/>
-                    </Button1>
-                </HouseWrapper>
+                {
+                    data.map((home)=>(
+                        <HouseWrapper>
+                            <HouseImg src={home.image} alt={home.alt}/>
+                            <HouseTitle>{home.title}</HouseTitle>
+                            <Button1 to='/homes'>
+                                {home.button}
+                                <Arrow/>
+                            </Button1>
+                        </HouseWrapper>
+                    ))
+                }
              </HomesSection>
         </Section>
     )

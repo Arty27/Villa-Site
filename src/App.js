@@ -7,6 +7,7 @@ import { sliderData } from './data/SliderData';
 import Dropdown from './components/Dropdown';
 import InfoSection from './components/InfoSection';
 import { infoData } from './data/InfoData';
+import { NewHouseData } from './data/NewHomesData';
 import HousesSection from './components/HousesSection';
 function App() {
   const [isOpen, setIsOpen]=useState(false);
@@ -20,7 +21,7 @@ function App() {
       <Hero slides={sliderData}/>
       <Dropdown isOpen={isOpen} toggle={toggle}/>
       <InfoSection {...infoData}/>
-      <HousesSection/>
+      <HousesSection data={NewHouseData}/>
       <Switch>
         <Route path="/" exact></Route>
       </Switch>
