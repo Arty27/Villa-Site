@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components/macro';
 import { Button } from './Button';
 import { IoMdArrowRoundForward } from 'react-icons/io';
 import { IoArrowForward, IoArrowBack } from 'react-icons/io5';
-
+import Fade from 'react-reveal/Fade';
 const HeroSection=styled.section`
     height: 100vh;
     max-height: 1100px;
@@ -117,7 +117,7 @@ const Hero = ({slides}) => {
     //     const next=()=>{
     //         setCurrent(current=>(current===length-1?0:current+1))
     //     }
-    //     timeout.current=setTimeout(next,3000)
+    //     timeout.current=setTimeout(next,5000)
     //     return function(){
     //         if(timeout.current){
     //             clearTimeout(timeout.current)
@@ -149,14 +149,16 @@ const Hero = ({slides}) => {
                                 {index===current && (
                                     <HeroSlider>
                                     <HeroImage src={slide.image} alt={slide.alt}/>
-                                    <HeroContent>
-                                        <h1>{slide.title}</h1>
-                                        <p>{slide.price}</p>
-                                        <Button to={slide.path} primary={true} css={`max-width:150px;align-content:center;display:flex;`} >
-                                            {slide.label}
-                                            <Arrow/>
-                                        </Button>
-                                    </HeroContent>
+                                    <Fade top>
+                                        <HeroContent>
+                                            <h1>{slide.title}</h1>
+                                            <p>{slide.price}</p>
+                                            <Button to={slide.path} primary={true} css={`max-width:150px;align-content:center;display:flex;`} >
+                                                {slide.label}
+                                                <Arrow/>
+                                            </Button>
+                                        </HeroContent>
+                                    </Fade>
                                 </HeroSlider>
                                 )}
                             </HeroSlide>

@@ -1,10 +1,12 @@
 import React from 'react'
+import { Slide } from 'react-reveal';
 import styled from 'styled-components';
 import { Button } from './Button';
 const Section=styled.section`
     width: 100%;
     height: 100%;
     padding: 4rem 0rem ;
+    overflow: hidden;
 `;
 const Container=styled.div`
     padding-top: 3rem;
@@ -39,6 +41,7 @@ const ColumnLeft=styled.div`
     @media screen and (max-width:768px){
         align-items: center;
         text-align: center;
+        align-content: center;
     }
 `;
 const ColumnRight=styled.div`
@@ -66,15 +69,17 @@ const InfoSection = ({heading,paraOne,paraTwo,buttonLabel,reverse,image}) => {
         <Section>
             <Container>
                 <ColumnLeft>
-                    <h1>{heading}</h1>
-                    <p>{paraOne}</p>
-                    <p>{paraTwo}</p>
-                    <Button primary="true" to='/homes'>
-                        {buttonLabel}
-                    </Button>
+                        <h1>{heading}</h1>
+                        <p>{paraOne}</p>
+                        <p>{paraTwo}</p>
+                        <Button primary="true" to='/homes'>
+                            {buttonLabel}
+                        </Button>
                 </ColumnLeft>
                 <ColumnRight reverse={reverse}>
-                    <img src={image}/>
+                    <Slide right>
+                        <img src={image}/>
+                    </Slide>
                 </ColumnRight>
             </Container>
         </Section>
