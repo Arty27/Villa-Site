@@ -1,21 +1,21 @@
-import React from 'react';
-import styled, {css} from 'styled-components/macro';
-import { Link } from 'react-router-dom';
-import { menuData } from '../data/MenuData';
-import { Button } from './Button';
-import Bars from '../images/bars.svg';
-import { useState } from 'react/cjs/react.development';
-const Nav=styled.nav`
-    height:60px;
+import React from "react";
+import styled, { css } from "styled-components/macro";
+import { Link } from "react-router-dom";
+import { menuData } from "../data/MenuData";
+import { Button } from "./Button";
+import Bars from "../images/bars.svg";
+import { useState } from "react/cjs/react.development";
+const Nav = styled.nav`
+    height: 60px;
     display: flex;
     justify-content: space-between;
     padding: 1rem 2rem;
-    z-index: 999;
+    z-index: 997;
     width: 100%;
     position: fixed;
-    background: ${({bgcolor})=>(bgcolor?'#cd853f':'transperent')};
+    background: ${({ bgcolor }) => (bgcolor ? "#cd853f" : "transperent")};
 `;
-const NavLink=css`
+const NavLink = css`
     color: #fff;
     display: flex;
     align-items: center;
@@ -24,13 +24,13 @@ const NavLink=css`
     cursor: pointer;
     text-decoration: none;
 `;
-const Logo=styled(Link)`
+const Logo = styled(Link)`
     ${NavLink}
     font-style: italic;
 `;
-const MenuBars=styled.i`
+const MenuBars = styled.i`
     display: none;
-    @media screen and (max-width:768px){
+    @media screen and (max-width: 768px) {
         display: block;
         background-image: url(${Bars});
         background-size: contain;
@@ -43,53 +43,54 @@ const MenuBars=styled.i`
         transform: translate(-50%, 25%);
     }
 `;
-const NavMenu=styled.div`
+const NavMenu = styled.div`
     display: flex;
     align-items: center;
     margin-right: -48px;
-    @media screen and (max-width:768px){
+    @media screen and (max-width: 768px) {
         display: none;
     }
 `;
-const NavMenuLinks=styled(Link)`
+const NavMenuLinks = styled(Link)`
     ${NavLink}
 `;
-const NavBtn=styled.div`
+const NavBtn = styled.div`
     display: flex;
     align-items: center;
     margin-right: 24px;
-    @media screen and (max-width:768px){
+    @media screen and (max-width: 768px) {
         display: none;
     }
-`
+`;
 
-const Navbar = ({toggle}) => {
-    const [bgcolor, setBgColor]=useState(false)
-    const changeBg=()=>{
-        if(window.scrollY>=60){
-            setBgColor(true)
+const Navbar = ({ toggle }) => {
+    const [bgcolor, setBgColor] = useState(false);
+    const changeBg = () => {
+        if (window.scrollY >= 60) {
+            setBgColor(true);
+        } else {
+            setBgColor(false);
         }
-        else{
-            setBgColor(false)
-        }
-    }
-    window.addEventListener('scroll',changeBg)
+    };
+    window.addEventListener("scroll", changeBg);
     return (
         <Nav bgcolor={bgcolor}>
             <Logo to="/">ELIXIR</Logo>
-            <MenuBars onClick={toggle}/>
+            <MenuBars onClick={toggle} />
             <NavMenu>
-                {
-                    menuData.map((item,index)=>(
-                        <NavMenuLinks to={item.link} key={index}>{item.title}</NavMenuLinks>
-                    ))
-                }
+                {menuData.map((item, index) => (
+                    <NavMenuLinks to={item.link} key={index}>
+                        {item.title}
+                    </NavMenuLinks>
+                ))}
             </NavMenu>
             <NavBtn>
-                <Button to="/contact" primary="true">Contact Us</Button>
+                <Button to="/contact" primary="true">
+                    Contact Us
+                </Button>
             </NavBtn>
         </Nav>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;

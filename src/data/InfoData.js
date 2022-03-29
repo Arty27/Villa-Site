@@ -7,14 +7,16 @@ export const infoData={
     buttonLabel:"View Homes",
     image:ImageOne,
     reverse:false,
-    delay:100
+    delay:100,
+    slide:"right"
 }
 export const infoDataTwo={
-    heading:"Explore Our Beautiful Homes",
+    heading:"Modern Designs",
     paraOne:"Eu anim voluptate laborum consectetur. Id ipsum aliqua est quis esse esse. Nostrud eiusmod do amet non laborum laboris ad elit ex .",
     paraTwo: "Lorem ipsum dolor sit amet consectetur adipisicing elit ut iste!",
     buttonLabel:"View Homes",
     image:ImageTwo,
     reverse:true,
-    delay:300
+    delay:300,
+    slide:"left"
 }

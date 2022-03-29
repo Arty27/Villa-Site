@@ -7,8 +7,13 @@ import { sliderData } from './data/SliderData';
 import Dropdown from './components/Dropdown';
 import InfoSection from './components/InfoSection';
 import { infoData } from './data/InfoData';
+import { infoDataTwo } from './data/InfoData';
 import { NewHouseData } from './data/NewHomesData';
 import HousesSection from './components/HousesSection';
+import InteriorSection from './components/InteriorSection';
+import Footer from './components/Footer';
+import About from './components/About';
+import Home from './components/Home';
 function App() {
   const [isOpen, setIsOpen]=useState(false);
   const toggle=()=>{
@@ -18,13 +23,12 @@ function App() {
     <Router className="App">
       <GlobalStyle/>
       <Navbar toggle={toggle}/>
-      <Hero slides={sliderData}/>
-      <Dropdown isOpen={isOpen} toggle={toggle}/>
-      <InfoSection {...infoData}/>
-      <HousesSection data={NewHouseData}/>
+      <div className='space'></div>
       <Switch>
-        <Route path="/" exact></Route>
+        <Route path="/about" component={About}></Route>
+        <Route path="/" exact component={Home}></Route>
       </Switch>
+      <Footer/>
     </Router>
   );
 }

@@ -1,0 +1,41 @@
+$dark-green:#0F4735;
+$pale-green:#295B4B;
+$dark-orange:#f15423;
+$light-orange:#F3673B;
+$yellow:#ffd000;
+$light-yellow:#FFE055;
+.btn-arrow{
+    width: auto;
+    font-size: 20px;
+    padding: 2px 2px 2px 0;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-family: sans-serif;
+    padding-right: 2rem;
+    background-color: $dark-green;
+    color: $yellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 120px 0px 180px 120px;
+    transition: all 0.3s ease-in-out;
+}
+.btn-icon{
+    color: $yellow;
+    background-color: $pale-green;
+    font-size: 40px;
+    border-radius: 50px;
+    margin-right: 10px;
+    padding: 5px;
+}
+.btn-arrow:hover{
+    padding-right: 3rem;
+    color: $dark-green;
+    background-color: $yellow;
+    transition: all 0.2s ease-in-out;
+}
+.btn-arrow:hover .btn-icon{
+    color: $dark-green;
+    background-color: $light-yellow;
+    transition: all 0.3s ease-in-out;
+}
